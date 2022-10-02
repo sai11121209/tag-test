@@ -16,8 +16,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: release
+      id: release
+      uses: rymndhng/release-on-push-action@v0.25.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        bump_version_scheme: minor
+        tag_prefix: ""
+        max_commits: 500
+
     - name: Checa
       uses: actions-ecosystem/action-get-latest-tag@v1
       id: get-latest-tag
+
+    - run: echo "${{ steps.get-latest-tag.outputs.tag }}"
 
     - run: echo "${{ steps.get-latest-tag.outputs.tag }}"
