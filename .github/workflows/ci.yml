@@ -16,8 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-      - uses: dylanvann/check-pull-request-title@v1
-        with:
-          # Match pull request titles in the form UI-1234 - Message.
-          pattern: '^SAICHANN-\d* - '
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - uses: dylanvann/check-pull-request-title@v1
+      with:
+        # Match pull request titles in the form UI-1234 - Message.
+        pattern: '^SAICHANN-\d* - '
