@@ -19,6 +19,6 @@ jobs:
 
     - uses: deepakputhraya/action-pr-title@master
       with:
-        regex: '^SAICHANN-\d* - ' # Regex the title should match.
+        regex: 'SAICHANN-\d' # Regex the title should match.
         github_token: ${{ github.token }}
 
