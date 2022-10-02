@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: dylanvann/check-pull-request-title@v1
+    - uses: dylanvann/check-pull-request-title@latest
       with:
         # Match pull request titles in the form UI-1234 - Message.
         pattern: '^SAICHANN-\d* - '
