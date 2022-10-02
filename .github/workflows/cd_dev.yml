@@ -1,0 +1,32 @@
+name: Develop CD
+on:
+  push:
+    branches: [ develop_cd ]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v5
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        default_bump: "patch"
+        tag_prefix: ""
+        release_branches: .*
+
+    - name: Checa
+      uses: actions-ecosystem/action-get-latest-tag@v1
+      id: get-latest-tag
+
+    - run: echo "${{ steps.get-latest-tag.outputs.tag }} {{ github.event.pull_request.title }}"
