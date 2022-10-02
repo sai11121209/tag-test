@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: dylanvann/check-pull-request-title@master
+    - uses: deepakputhraya/action-pr-title@master
       with:
-        # Match pull request titles in the form UI-1234 - Message.
-        pattern: '^SAICHANN-\d* - '
+        regex: '^SAICHANN-\d* - ' # Regex the title should match.
+        github_token: ${{ github.token }}
