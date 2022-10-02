@@ -30,3 +30,10 @@ jobs:
       id: get-latest-tag
 
     - run: echo "${{ steps.get-latest-tag.outputs.tag }} {{ github.event.pull_request.title }}"
+
+    - name: Get Commit Message
+      run: |
+        MSG=$(git log --format=%B -n 1 ${{github.event.after}})
+        echo "::set-env name=COMMIT_MESSAGE::${MSG}"
+      - name: Echo commit message
+        run: echo "Commit SHA: ${{github.event.after}}, commit message: ${{env.COMMIT_MESSAGE}} (or ${COMMIT_MESSAGE})"
