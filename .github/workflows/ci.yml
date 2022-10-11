@@ -14,7 +14,6 @@ jobs:
     environment:
       name: A
     steps:
-
       - name: Get Commit Message
         run: |
           echo ${{ secrets.TEST }}
@@ -25,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: A
-    
     steps:
       - name: Get Commit Message
         run: |
@@ -36,6 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: A
+    steps:
+      - name: Get Commit Message
+        run: |
+          echo ${{ secrets.TEST }}
 
   deployB:
     needs: deploy
@@ -43,7 +45,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: A
-    
     steps:
       - name: Get Commit Message
         run: |
