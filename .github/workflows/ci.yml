@@ -22,6 +22,8 @@ jobs:
     needs: build
     name: Deploy
     runs-on: ubuntu-latest
+    environment:
+      name: A
     
     steps:
       - name: Get Commit Message
