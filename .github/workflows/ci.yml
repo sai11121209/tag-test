@@ -40,6 +40,7 @@ jobs:
           echo ${{ secrets.TEST }}
 
   deployB:
+    if: False
     needs: deploy
     name: DeployB
     runs-on: ubuntu-latest
