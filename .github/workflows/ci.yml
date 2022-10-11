@@ -30,4 +30,21 @@ jobs:
       - name: Get Commit Message
         run: |
           echo ${{ secrets.TEST }}
-          sleep 40
+  deployA:
+    needs: deploy
+    name: DeployA
+    runs-on: ubuntu-latest
+    environment:
+      name: A
+
+  deployB:
+    needs: deploy
+    name: DeployB
+    runs-on: ubuntu-latest
+    environment:
+      name: A
+    
+    steps:
+      - name: Get Commit Message
+        run: |
+          echo ${{ secrets.TEST }}
