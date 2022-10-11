@@ -20,6 +20,7 @@ jobs:
           echo ${{ secret.TEST }}
     
   deploy:
+    needs: build
     name: Deploy
     runs-on: ubuntu-latest
     
