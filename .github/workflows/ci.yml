@@ -25,5 +25,4 @@ jobs:
     
     steps:
       - name: Get Commit Message
-        run: |
-          echo ${{ secret.TEST }}
+        run: echo ${{ secrets.TEST }}
