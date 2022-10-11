@@ -1,24 +1,29 @@
 name: CI
 on:
-  pull_request:
+  push:
     branches: [ develop ]
-    types: [opened, edited, synchronize, reopened]
 
 defaults:
   run:
     shell: bash
 
 jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    environment:
+      name: A
+    steps:
+
+      - name: Get Commit Message
+        run: |
+          echo ${{ secret.TEST }}
+    
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - uses: deepakputhraya/action-pr-title@master
-      with:
-        regex: 'SAICHANN-\d' # Regex the title should match.
-        github_token: ${{ github.token }}
-
+      - name: Get Commit Message
+        run: |
+          echo ${{ secret.TEST }}
