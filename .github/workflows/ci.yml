@@ -16,7 +16,8 @@ jobs:
     steps:
 
       - name: Get Commit Message
-        run: echo ${{ secrets.TEST }}
+        run: |
+          echo ${{ secrets.TEST }}
     
   deploy:
     needs: build
@@ -27,4 +28,6 @@ jobs:
     
     steps:
       - name: Get Commit Message
-        run: echo ${{ secrets.TEST }}
+        run: |
+          echo ${{ secrets.TEST }}
+          sleep 40
