@@ -16,8 +16,7 @@ jobs:
     steps:
 
       - name: Get Commit Message
-        run: |
-          echo ${{ secret.TEST }}
+        run: echo ${{ secret.TEST }}
     
   deploy:
     needs: build
