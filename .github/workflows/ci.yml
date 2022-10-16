@@ -51,5 +51,5 @@ jobs:
         run: |
           echo ${{ secrets.TEST }}
   job:
-    uses: ./workflows/cd_dev.yml@develop
+    uses: ./.github/workflows/cd_dev.yml@develop
 
