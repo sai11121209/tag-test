@@ -1,0 +1,24 @@
+name: Build & Deploy for given tareget
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        description: 'Target to deploy app'
+        required: true
+        type: string
+
+env:
+  TARGET: ${{ inputs.target }}
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo "Build for $TARGET environment"
+      - name: Package
+        run: echo "Package for $TARGET environment"
+      - name: Deploy
+        run: echo "Deploy to $TARGET environment"

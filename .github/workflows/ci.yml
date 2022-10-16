@@ -1,21 +1,13 @@
-name: CI
+name: Dploy with matrix strategy
+
 on:
-  push:
-    branches: [ develop ]
+  workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    environment:
-      name: A
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Get Commit Message
-        run: |
-          echo ${{ secrets.TEST }}
-
-      - name: Get
-        uses: ./.github/workflows/ac.yml@develop
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: kondoumh/iac-dev/.github/workflows/deployment-reusable.yml@master
+    with:
+      target: ${{ matrix.target }}
