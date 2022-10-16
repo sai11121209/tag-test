@@ -14,38 +14,5 @@ jobs:
         run: |
           echo ${{ secrets.TEST }}
 
-  deploy:
-    needs: build
-    name: Deploy
-    runs-on: ubuntu-latest
-    environment:
-      name: A
-    steps:
-      - name: Get Commit Message
-        run: |
-          echo ${{ secrets.TEST }}
-  deployA:
-    needs: deploy
-    name: DeployA
-    runs-on: ubuntu-latest
-    environment:
-      name: A
-    steps:
-      - name: Get Commit Message
-        run: |
-          echo ${{ secrets.TEST }}
-
-  deployB:
-    if: False
-    needs: deploy
-    name: DeployB
-    runs-on: ubuntu-latest
-    environment:
-      name: A
-    steps:
-      - name: Get Commit Message
-        run: |
-          echo ${{ secrets.TEST }}
-  job:
-    uses: ./.github/workflows/ac.yml
-
+      - name: Get
+        uses: ./.github/workflows/ac.yml
