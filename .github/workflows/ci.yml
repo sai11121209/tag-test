@@ -10,6 +10,9 @@ jobs:
     environment:
       name: A
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Get Commit Message
         run: |
           echo ${{ secrets.TEST }}
