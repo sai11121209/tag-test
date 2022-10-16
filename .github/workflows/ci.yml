@@ -1,7 +1,7 @@
-name: Dploy with matrix strategy
-
+name: CI
 on:
-  workflow_dispatch:
+  push:
+    branches: [ develop ]
 
 jobs:
   ReuseableMatrixJobForDeployment:
