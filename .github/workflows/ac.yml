@@ -1,11 +1,12 @@
 name: default
 
-on: push
-  jobs:
-    deploy:
-      name: Deploy
-      runs-on: ubuntu-latest
+on:
+  push:
+    jobs:
+      deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
 
-      steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
