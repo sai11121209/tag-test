@@ -1,10 +1,6 @@
 name: default
 
-on:
-  push:
-    branches:
-    - '*'
-
+on: push
   jobs:
     deploy:
       name: Deploy
